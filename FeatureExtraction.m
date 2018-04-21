@@ -1,0 +1,27 @@
+%% Extract Features using Hog 
+features = [];
+for i=1:20
+n = int2str(i);
+path = strcat('data_png/', n, '.png');
+%% read Image
+I = imread(path);
+I = FilterGreen(I);
+
+%% Convert to gray scale
+I = rgb2gray(I);
+
+%% apply Gaussien
+I = Gaussian(I);
+
+%% image enhance
+I = imadjust(I);
+
+%% Apply Hog
+R = Hog(I);
+
+%% Append Features
+features = [features;R];
+end
+
+%% Save features in .txt
+dlmwrite('hogfeatures.txt',features);

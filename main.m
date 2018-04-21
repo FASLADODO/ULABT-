@@ -14,7 +14,10 @@ figure(2)
 imshow(I2)
 title('G image')
 
-
+%% Extract Features using Hog 
+for i=1:20
+    
+end
 
 % % %% apply Gabor
 % [mag,phase] = Gabor(I3);
